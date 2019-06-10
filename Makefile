@@ -26,7 +26,8 @@ all:	steel
 steel:
 	@cd src; \
 	make -f Makefile; \
-	cd ..;\
+	cd ..; \
+	mkdir -p pkg/usr/bin; \
 	cp $(OBJ_DIR)/steel pkg/usr/bin
 	dpkg-deb --build $(PKG_DIR) $(OBJ_DIR)
 
