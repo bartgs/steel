@@ -29,8 +29,7 @@ if [ -d /usr/lib/systemd ] && [ -d /lib/systemd/system-sleep ] && [ "$USER" = "r
 then
     FILE=/etc/systemd/system/steel.service
     echo "[Unit]" > $FILE
-    echo "Description=SteelSeries driver" >> $FILE
-    echo "After=suspend.target" >> $FILE
+    echo "Description=SteelSeries driver" >> $FILE    
     echo "" >> $FILE
     echo "[Service]" >> $FILE
     echo "User=root" >> $FILE
@@ -38,7 +37,7 @@ then
     echo "ExecStart=/usr/bin/steel --active" >> $FILE
     echo "" >> $FILE
     echo "[Install]" >> $FILE
-    echo "WantedBy=graphical.target suspend.target" >> $FILE
+    echo "WantedBy=multi-user.target" >> $FILE
     
     systemctl enable /etc/systemd/system/steel.service
 	steel --active
