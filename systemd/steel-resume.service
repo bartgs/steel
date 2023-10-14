@@ -1,0 +1,10 @@
+[Unit]
+Description=SteelSeries driver on resume
+After=suspend.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/systemctl --no-block restart steel.service
+
+[Install]
+WantedBy=suspend.target 
